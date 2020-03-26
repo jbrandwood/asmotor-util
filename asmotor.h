@@ -40,7 +40,7 @@
 typedef SSIZE_T ssize_t;
 #endif
 
-#if defined(__VBCC__) || defined(__GNUC__)
+#if defined(__VBCC__) || (defined(__GNUC__) && !defined(__MINGW32__))
 extern char*
 _strdup(const char* str);
 

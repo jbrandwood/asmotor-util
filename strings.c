@@ -16,7 +16,7 @@
     along with ASMotor.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#if defined(__VBCC__) || defined(__GNUC__)
+#if defined(__VBCC__) || (defined(__GNUC__) && !defined(__MINGW32__))
 
 #include "asmotor.h"
 
@@ -82,4 +82,6 @@ _stricmp(const char* string1, const char* string2) {
     return *string1 - *string2;
 }
 
+#else
+typedef int make_iso_compilers_happy;
 #endif
